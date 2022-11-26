@@ -5,7 +5,7 @@ import org.hibernate.Transaction;
 
 import java.time.LocalDate;
 
-public class MainInsert {
+public class MainUpdate_Update {
 
     public static void main(String[] args) {
 // wywołaj try-with-resources który zamknie sesję automatycznie po opuszczeniu try
@@ -13,23 +13,17 @@ public class MainInsert {
 
             Transaction transaction = session.beginTransaction();
 
-//            Student student = new Student();
-//            student.setImie("Paweł");
-//            student.setDataUrodzenia(LocalDate.of(1990,1,3));
-//            student.setKierunekNauczania("Informatyka");
-//            student.setIndeks("123123");
 
             Student student = Student.builder()
-                    .dataUrodzenia(LocalDate.of(1990, 1, 3))
-                    .kierunekNauczania("Informatyka")
-                    .indeks("123123")
-                    .imie("Paweł")
+                    .dataUrodzenia(LocalDate.of(1995, 6, 15))
+                    .kierunekNauczania("Filozofia")
+                    .indeks("321321")
+                    .imie("Gaweł")
+                    .id(2L)
                     .build();
 
 
-
-
-            session.persist(student);
+            session.merge(student);
 
             transaction.commit();
 

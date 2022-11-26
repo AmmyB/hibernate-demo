@@ -3,10 +3,9 @@ package pl.sda.hibernate.demo;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.io.IOException;
 import java.time.LocalDate;
 
-public class Main {
+public class MainInsert {
 
     public static void main(String[] args) {
 // wywołaj try-with-resources który zamknie sesję automatycznie po opuszczeniu try
@@ -26,6 +25,8 @@ public class Main {
                     .indeks("123123")
                     .imie("Paweł")
                     .build();
+
+
 
 
             session.persist(student);
